@@ -1,0 +1,11 @@
+.header {
+  background: rgb(var(--background-start-rgb));
+  height: 84px;
+  padding: 16px 48px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
