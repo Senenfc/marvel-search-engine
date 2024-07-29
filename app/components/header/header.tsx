@@ -1,7 +1,8 @@
 import Image from "next/image";
-import styles from "./header.module.css";
+import styles from "./Header.module.css";
 import Logo from "@/public/logo.svg";
-import HeartIconFilled from "@/public/heart-icon-filled.svg"
+import HeartIconFilled from "@/public/heart-icon-filled.svg";
+import Link from "next/link";
 
 export const Header = () => {
   return (
@@ -9,7 +10,7 @@ export const Header = () => {
       <nav>
         <section>
           <div className={styles.container}>
-            <div>
+            <Link href={"/"}>
               <Image
                 priority
                 alt="Marvel logo"
@@ -17,16 +18,16 @@ export const Header = () => {
                 width={130}
                 height={52}
               />
-            </div>
-            <div>
-            <Image
+            </Link>
+            <Link href={"/favorites"}>
+              <Image
                 priority
                 alt="Heart icon"
                 src={HeartIconFilled}
                 width={24}
                 height={21}
               />
-            </div>
+            </Link>
           </div>
         </section>
       </nav>

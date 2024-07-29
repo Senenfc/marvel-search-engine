@@ -1,0 +1,23 @@
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.info {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000;
+}
+
+.name {
+  color: #ffffff;
+  margin: 0;
+  flex: 1;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

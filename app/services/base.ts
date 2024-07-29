@@ -28,7 +28,11 @@ export const apiServiceGet = async (endpoint: string, params?: ApiParams) => {
   const url = buildUrl(endpoint, params);
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      next: {
+        revalidate: 60 * 60 * 30 * 6
+      }
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
