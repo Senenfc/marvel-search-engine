@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import Logo from "@/public/logo.svg";
 import HeartIconFilled from "@/public/heart-icon-filled.svg";
 import Link from "next/link";
+import { FavoritesCounter } from "../favoritesCounter";
 
 export const Header = () => {
   return (
@@ -27,6 +28,7 @@ export const Header = () => {
                 width={24}
                 height={21}
               />
+              <FavoritesCounter />
             </Link>
           </div>
         </section>

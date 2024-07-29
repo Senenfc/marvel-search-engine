@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { HeroesGrid } from "../heroesGrid";
+import styles from "./SearchEngine.module.css";
 
 export const SearchEngine = ({ heroes }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,11 +18,13 @@ export const SearchEngine = ({ heroes }: any) => {
   return (
     <>
       <input
+        className={styles.search}
         type="text"
-        placeholder="SEARCH A HERO..."
+        placeholder="🔍 SEARCH A HERO..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <p className={styles.results}>{filteredHeroes.length} RESULTS</p>
       <HeroesGrid heroes={filteredHeroes} />
     </>
   );

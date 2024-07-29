@@ -1,0 +1,17 @@
+.search {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #000000;
+  outline: none;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.results {
+  margin-bottom: 20px;
+  font-size: 12px;
+}

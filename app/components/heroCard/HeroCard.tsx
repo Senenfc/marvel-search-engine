@@ -33,7 +33,7 @@ export const HeroCard = ({ hero }: any) => {
   return (
     <div className={styles.card}>
       <Link href={`/hero/${id}`}>
-        <div>
+        <div className={styles.container}>
           <Image
             key={id}
             src={image}
@@ -46,6 +46,7 @@ export const HeroCard = ({ hero }: any) => {
         <div className={styles.info}>
           <p className={styles.name}>{name}</p>
           <div
+            className={styles.favorite}
             onClick={(e) => {
               e.preventDefault();
               toggleFavorite(hero);

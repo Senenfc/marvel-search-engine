@@ -1,11 +1,27 @@
 .card {
-  border-radius: 8px;
+  position: relative;
   overflow: hidden;
   max-width: 200px;
 }
 
+.card::after {
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+  border-width: 12px 12px 0 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: auto;
+  z-index: 40;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
 .info {
-  padding: 8px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,4 +36,23 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.favorite {
+  position: absolute;
+  right: 8px;
+  cursor: pointer;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+  width: 16px;
+}
+
+.favorite:hover {
+  transform: scale(1.20);
+}
+
+.container {
+  border-bottom: 4px solid red;
+  height: 81%;
 }

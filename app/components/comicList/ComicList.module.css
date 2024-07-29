@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.item {
+  flex: 0 0 auto;
+  width: 200px;
+  text-align: left;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.year {
+  font-size: 12px;
+}
