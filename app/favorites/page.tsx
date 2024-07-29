@@ -1,8 +1,9 @@
 import { FavoritesGrid } from "../components";
+import styles from "./page.module.css";
 
 export default function FavoritesPage() {
   return (
-    <main style={{ padding: "3rem" }}>
+    <main className={styles.main}>
       <FavoritesGrid />
     </main>
   );

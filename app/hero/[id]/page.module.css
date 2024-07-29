@@ -1,0 +1,57 @@
+.sectionOne {
+  position: relative;
+  display: flex;
+  background: #000000;
+  color: #ffffff;
+  justify-content: center;
+  border-top: 2px solid #222;
+}
+
+.sectionOne::after {
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+  border-width: 22px 22px 0 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: auto;
+  z-index: 40;
+}
+
+.container {
+  display: flex;
+  max-width: 1000px;
+  align-items: center
+}
+
+.image {
+  margin-right: 30px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.name {
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.sectionTwo {
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerComics {
+  max-width: 1000px;
+}
+
+.comics {
+  font-weight: 700;
+  font-size: 32px;
+}

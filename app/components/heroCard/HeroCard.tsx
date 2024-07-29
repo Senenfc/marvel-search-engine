@@ -7,20 +7,24 @@ import { AppContext } from "@/app/context";
 import { HeartIconFilled } from "@/app/assets/HeartIconFilled";
 import { HeartIcon } from "@/app/assets/HeartIcon";
 import styles from "./HeroCard.module.css";
+import { Heroes, IAppContext } from "@/app/interfaces";
 
-export const HeroCard = ({ hero }: any) => {
+export const HeroCard = ({ hero }: { hero: Heroes }) => {
   const { id, name, image } = hero;
 
-  const { favoriteHeroes, setFavoriteHeroes } = useContext<any>(AppContext);
+  const { favoriteHeroes, setFavoriteHeroes } =
+    useContext<IAppContext>(AppContext);
 
-  const isFavorite = favoriteHeroes.some((fav: any) => fav.id === hero.id);
+  const isFavorite = favoriteHeroes.some(
+    (fav: Heroes) => fav.id === hero.id
+  );
 
-  const toggleFavorite = (hero: any) => {
+  const toggleFavorite = (hero: Heroes) => {
     let updatedFavorites;
 
     if (isFavorite) {
       updatedFavorites = favoriteHeroes.filter(
-        (fav: any) => fav.id !== hero.id
+        (fav: Heroes) => fav.id !== hero.id
       );
     } else {
       updatedFavorites = [...favoriteHeroes, hero];

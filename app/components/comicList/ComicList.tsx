@@ -1,14 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./ComicList.module.css";
+import { Comics, TDates } from "@/app/interfaces";
 
-export const sortComicsByDate = (comics: any) => {
+export const sortComicsByDate = (comics: Comics[]) => {
   return comics.sort((a: any, b: any) => {
     const dateA = new Date(
-      a.dates.find((date: any) => date.type === "onsaleDate").date
+      a.dates.find((date: TDates) => date.type === "onsaleDate").date
     ).getTime();
     const dateB = new Date(
-      b.dates.find((date: any) => date.type === "onsaleDate").date
+      b.dates.find((date: TDates) => date.type === "onsaleDate").date
     ).getTime();
     return dateA - dateB;
   });
@@ -21,7 +22,7 @@ const ComicList = ({ comics }: any) => {
     <div className={styles.list}>
       {sortedComics.map((comic: any) => {
         const onsaleDate = comic.dates.find(
-          (date: any) => date.type === "onsaleDate"
+          (date: TDates) => date.type === "onsaleDate"
         ).date;
         const year = new Date(onsaleDate).getFullYear();
 
