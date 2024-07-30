@@ -3,7 +3,7 @@ import { apiServiceGet } from "./base";
 export const getHeroById = async (id: number) => {
   const data = await apiServiceGet(`/characters/${id}`);
 
-  if (!data.data.results || data.data.results.length === 0) {
+  if (!data?.data?.results || data?.data?.results.length === 0) {
     return undefined;
   }
 
