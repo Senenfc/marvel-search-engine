@@ -13,8 +13,8 @@ export async function generateMetadata({
     const hero = await getHeroById(params.id);
 
     return {
-      title: hero.name,
-      description: `${hero.name} hero's page`,
+      title: hero?.name,
+      description: `${hero?.name} hero's page`,
     };
   } catch (error) {
     return {
@@ -34,15 +34,15 @@ export default async function HeroPage({ params }: { params: { id: number } }) {
         <div className={styles.container}>
           <div className={styles.image}>
             <Image
-              src={hero.image}
-              alt={hero.name}
+              src={hero?.image ?? ''}
+              alt={hero?.name ?? ''}
               width={300}
               height={300}
             />
           </div>
           <div className={styles.info}>
-            <h1 className={styles.name}>{hero.name}</h1>
-            <p>{hero.description}</p>
+            <h1 className={styles.name}>{hero?.name}</h1>
+            <p>{hero?.description}</p>
           </div>
         </div>
       </section>
