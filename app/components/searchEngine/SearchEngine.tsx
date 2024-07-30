@@ -4,17 +4,23 @@ import { useEffect, useState } from "react";
 import { HeroesGrid } from "../heroesGrid";
 import styles from "./SearchEngine.module.css";
 import { Heroes } from "@/app/interfaces";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export const SearchEngine = ({ heroes }: { heroes: Heroes[] }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredHeroes, setFilteredHeroes] = useState(heroes);
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
 
-  useEffect(() => {
-    const filtered = heroes.filter((hero: Heroes) =>
-      hero.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredHeroes(filtered);
-  }, [searchTerm, heroes]);
+  const handleSearch = (text: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (text) {
+      params.set("search", text);
+    } else {
+      params.delete("search");
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <>
@@ -22,11 +28,11 @@ export const SearchEngine = ({ heroes }: { heroes: Heroes[] }) => {
         className={styles.search}
         type="text"
         placeholder="🔍 SEARCH A HERO..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        defaultValue={searchParams.get("search")?.toString()}
+        onChange={(e) => handleSearch(e.target.value)}
       />
-      <p className={styles.results}>{filteredHeroes.length} RESULTS</p>
-      <HeroesGrid heroes={filteredHeroes} />
+      <p className={styles.results}>{heroes.length} RESULTS</p>
+      <HeroesGrid heroes={heroes} />
     </>
   );
 };

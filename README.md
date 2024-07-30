@@ -74,8 +74,6 @@ Se realizan test de varios componentes y servicios.
 
 Se están mejorando ciertos aspectos y otros que con más tiempo se podrían mejorar aún más.
 
-Actualmente se está cambiando el filtrado para que ataque directamente a la api y también la generación de páginas de cada héroe para que se haga de manera estática y sea más rápida la carga, ya que la api va bastante lenta.
-
 Mejoras que se podrían hacer con más tiempo:
 
 - Crear componente de no hay resultados para el caso de que no se encuentra ninguna búsqueda o que no haya favoritos.
@@ -85,3 +83,5 @@ Mejoras que se podrían hacer con más tiempo:
 - Adaptador para la librería de llamadas.
 - Tipado de las respuestas de la api.
 - Test de todos los archivos.
+- Añadir componente loader para las cargas.
+- Añadir skeletons.

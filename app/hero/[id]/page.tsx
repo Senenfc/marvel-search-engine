@@ -1,8 +1,9 @@
 import ComicList from "@/app/components/comicList/ComicList";
-import { getComicsByHero, getHeroById } from "@/app/services";
+import { getComicsByHero, getHeroById, getHeroes } from "@/app/services";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Metadata } from "next";
+import { Heroes } from "@/app/interfaces";
 
 export async function generateMetadata({
   params,
@@ -24,6 +25,12 @@ export async function generateMetadata({
   }
 }
 
+export async function generateStaticParams() {
+  const heroes = await getHeroes();
+
+  return heroes.map((hero: Heroes) => ({ id: hero.id.toString() }));
+}
+
 export default async function HeroPage({ params }: { params: { id: number } }) {
   const hero = await getHeroById(params.id);
   const comics = await getComicsByHero(params.id);
@@ -34,8 +41,8 @@ export default async function HeroPage({ params }: { params: { id: number } }) {
         <div className={styles.container}>
           <div className={styles.image}>
             <Image
-              src={hero?.image ?? ''}
-              alt={hero?.name ?? ''}
+              src={hero?.image ?? ""}
+              alt={hero?.name ?? ""}
               width={300}
               height={300}
             />
