@@ -2,6 +2,27 @@ import ComicList from "@/app/components/comicList/ComicList";
 import { getComicsByHero, getHeroById } from "@/app/services";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: number };
+}): Promise<Metadata> {
+  try {
+    const hero = await getHeroById(params.id);
+
+    return {
+      title: hero.name,
+      description: `${hero.name} hero's page`,
+    };
+  } catch (error) {
+    return {
+      title: "Hero's page",
+      description: "Hero's page info",
+    };
+  }
+}
 
 export default async function HeroPage({ params }: { params: { id: number } }) {
   const hero = await getHeroById(params.id);
@@ -13,7 +34,7 @@ export default async function HeroPage({ params }: { params: { id: number } }) {
         <div className={styles.container}>
           <div className={styles.image}>
             <Image
-              src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+              src={hero.image}
               alt={hero.name}
               width={300}
               height={300}

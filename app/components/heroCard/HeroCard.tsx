@@ -15,9 +15,7 @@ export const HeroCard = ({ hero }: { hero: Heroes }) => {
   const { favoriteHeroes, setFavoriteHeroes } =
     useContext<IAppContext>(AppContext);
 
-  const isFavorite = favoriteHeroes.some(
-    (fav: Heroes) => fav.id === hero.id
-  );
+  const isFavorite = favoriteHeroes.some((fav: Heroes) => fav.id === hero.id);
 
   const toggleFavorite = (hero: Heroes) => {
     let updatedFavorites;
@@ -51,6 +49,7 @@ export const HeroCard = ({ hero }: { hero: Heroes }) => {
           <p className={styles.name}>{name}</p>
           <div
             className={styles.favorite}
+            data-testid="favoriteButton"
             onClick={(e) => {
               e.preventDefault();
               toggleFavorite(hero);

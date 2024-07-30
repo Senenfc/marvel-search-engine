@@ -9,6 +9,7 @@ export const getHeroes = async () => {
       name: hero.name,
       image: `${hero.thumbnail.path}.${hero.thumbnail.extension}`,
     }));
+    
     return heroes;
   } catch (error) {
     console.error(`Error fetching heroes: ${error}`);
