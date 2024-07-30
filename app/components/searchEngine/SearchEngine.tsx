@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { HeroesGrid } from "../heroesGrid";
 import styles from "./SearchEngine.module.css";
 import { Heroes } from "@/app/interfaces";
