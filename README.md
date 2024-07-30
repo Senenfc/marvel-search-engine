@@ -43,6 +43,13 @@ bun dev
 Abre [http://localhost:3000](http://localhost:3000) en tu navegador y podrás ver la aplicación en funcionamiento.
 
 
+## Tecnologías
+
+`Next.js`
+`Typescript`
+`Vitest`
+
+
 ## Arquitectura
 
 La aplicación se compone de una arquitectura sencilla y limpia que separa los componentes haciéndolos reutilizables e independientes de las páginas, con esto podemos crear componentes del lado del cliente pero haciendo que las páginas sirmpre sean SSR y podamos aprovechar la potencia de Next, lo cual también nos mejora el SEO al proporcionarnos de esta manera una carga rápida y la posibilidad de personalizar la metadata de esta.
@@ -51,6 +58,8 @@ También se crea una capa de servicios que abstrae las llamadas a la api, por lo
 
 Igualmente también se abstraen las devoluciones de la api para enviar solo los datos necesarios a cliente y al igual que antes si quisieramos cambiar a otra api solamente tendríamos que tocar los servicios.
 
+También nos aprovechamos de la potencia de las imágenes y los link de Next.js que nos permiten realizar la precarga de imágenes y optimización tanto de estas como de la navegación.
+
 Contamos con 3 páginas:
 
 - La principal en la raiz `/` con el buscador y las card de los héroes resultantes de la llamada a la api.
@@ -58,7 +67,7 @@ Contamos con 3 páginas:
 - `/favorites`con el listado de favoritos y su buscador
 
 El desarrollo está hecho en responsive design.
-Se realizan 
+Se realizan test de varios componentes y servicios.
 
 
 ## Nice to have
