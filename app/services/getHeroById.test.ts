@@ -31,6 +31,7 @@ describe("getHeroById", () => {
 
     expect(apiServiceGet).toHaveBeenCalledWith(`/characters/${heroId}`);
     expect(hero).toEqual({
+      id: 1,
       name: "Hero One",
       image: "http://example.com/image1.jpg",
       description: "A hero description",
