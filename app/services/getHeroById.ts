@@ -9,6 +9,7 @@ export const getHeroById = async (id: number) => {
 
   const hero = data.data.results[0];
   const heroResult = {
+    id: hero.id,
     name: hero.name,
     image: `${hero.thumbnail.path}.${hero.thumbnail.extension}`,
     description: hero.description,

@@ -4,6 +4,8 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { Metadata } from "next";
 import { Heroes } from "@/app/interfaces";
+import { FavoritesButton } from "@/app/components";
+import { relative } from "path";
 
 export async function generateMetadata({
   params,
@@ -48,7 +50,10 @@ export default async function HeroPage({ params }: { params: { id: number } }) {
             />
           </div>
           <div className={styles.info}>
-            <h1 className={styles.name}>{hero?.name}</h1>
+            <div style={{position: 'relative'}}>
+              <h1 className={styles.name}>{hero?.name}</h1>
+              <FavoritesButton hero={hero} className={styles.favorite} />
+            </div>
             <p>{hero?.description}</p>
           </div>
         </div>

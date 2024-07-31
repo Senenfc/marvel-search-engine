@@ -5,3 +5,4 @@ export * from "./searchEngine";
 export * from "./favoritesGrid";
 export * from "./comicList";
 export * from "./favoritesCounter";
+export * from "./favoritesButton";

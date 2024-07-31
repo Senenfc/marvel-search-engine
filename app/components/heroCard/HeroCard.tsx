@@ -8,29 +8,10 @@ import { HeartIconFilled } from "@/app/assets/HeartIconFilled";
 import { HeartIcon } from "@/app/assets/HeartIcon";
 import styles from "./HeroCard.module.css";
 import { Heroes, IAppContext } from "@/app/interfaces";
+import { FavoritesButton } from "../favoritesButton";
 
 export const HeroCard = ({ hero }: { hero: Heroes }) => {
   const { id, name, image } = hero;
-
-  const { favoriteHeroes, setFavoriteHeroes } =
-    useContext<IAppContext>(AppContext);
-
-  const isFavorite = favoriteHeroes.some((fav: Heroes) => fav.id === hero.id);
-
-  const toggleFavorite = (hero: Heroes) => {
-    let updatedFavorites;
-
-    if (isFavorite) {
-      updatedFavorites = favoriteHeroes.filter(
-        (fav: Heroes) => fav.id !== hero.id
-      );
-    } else {
-      updatedFavorites = [...favoriteHeroes, hero];
-    }
-
-    setFavoriteHeroes(updatedFavorites);
-    localStorage.setItem("favorite-heroes", JSON.stringify(updatedFavorites));
-  };
 
   return (
     <div className={styles.card}>
@@ -47,16 +28,7 @@ export const HeroCard = ({ hero }: { hero: Heroes }) => {
         </div>
         <div className={styles.info}>
           <p className={styles.name}>{name}</p>
-          <div
-            className={styles.favorite}
-            data-testid="favoriteButton"
-            onClick={(e) => {
-              e.preventDefault();
-              toggleFavorite(hero);
-            }}
-          >
-            {isFavorite ? <HeartIconFilled /> : <HeartIcon />}
-          </div>
+          <FavoritesButton hero={hero} className={styles.favorite} />
         </div>
       </Link>
     </div>
